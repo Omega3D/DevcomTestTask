@@ -24,6 +24,14 @@
 Копіювати код
 ## dotnet ef database update
 
+Потрібно добавити в sql Stored Procedures та вставити код до них з файлу у папці Stored Procedures
+Назви процедур:
+spDeleteAnnouncement
+spCreateAnnouncement
+spGetAllAnnouncements
+spGetAnnouncementById
+spUpdateAnnouncement
+
 dotnet run
 
 Проект буде доступний за адресою: https://localhost:5001.
