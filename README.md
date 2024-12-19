@@ -1,53 +1,85 @@
-DevcomTestTask
+# DevcomTestTask
 
-Цей проект є ASP.NET MVC додатком, побудованим з використанням принципів Clean Architecture. Він використовує Entity Framework для доступу до бази даних та Google Identity Authentication для автентифікації користувачів.
+A robust ASP.NET MVC application built using Clean Architecture principles, featuring Entity Framework for database operations and Google Identity Authentication for user authentication.
 
-Вимоги:
-.NET 8.0 або новіша версія
-SQL Server або інша підтримувана база даних
-Google OAuth Client ID та Client Secret для автентифікації
-Покрокова інструкція по налаштуванню проекту:
-Клонуйте репозиторій: Використовуйте Git, щоб клонувати репозиторій:
+## 🛠 Prerequisites
 
-bash
+- .NET 8.0 or newer
+- SQL Server (or any other supported database)
+- Google OAuth Client ID and Client Secret
+- Git
+
+## 📦 Installation
+
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/Omega3D/DevcomTestTask.git
-Налаштування з’єднання з базою даних: У файлі appsettings.json налаштуйте строку з’єднання до вашої бази даних:
+cd DevcomTestTask
+```
 
-json
+### 2. Configure Database Connection
+
+Update the connection string in `appsettings.json`:
+
+```json
 {
   "ConnectionStrings": {
     "DefaultConnection": "Server=<your_server>;Database=<your_database>;User Id=<your_user>;Password=<your_password>;"
   }
 }
-Введення ключів для Google Identity: У файлі appsettings.json введіть ваші ключі Google Identity:
+```
 
-json
+### 3. Set Up Google Authentication
+
+Configure Google Identity keys in `appsettings.json`:
+
+```json
 {
   "GoogleAuth": {
     "ClientId": "Your_Google_Client_Id",
     "ClientSecret": "Your_Google_Client_Secret"
   }
 }
-Створення міграцій для бази даних: Після налаштування проекту застосуйте міграції для створення таблиць у базі даних.
+```
 
-Створіть міграцію:
+### 4. Database Migration
+
+Run the following commands to set up your database:
+
+```bash
+# Create initial migration
 dotnet ef migrations add InitialCreate
 
-Застосуйте міграцію до бази даних:
+# Apply migration to database
 dotnet ef database update
+```
 
-Додавання SQL Stored Procedures: 
-Додайте в базу даних наступні Stored Procedures. 
-Код для кожної процедури знаходиться у папці Stored Procedures:
+### 5. Install Stored Procedures
 
-spDeleteAnnouncement
-spCreateAnnouncement
-spGetAllAnnouncements
-spGetAnnouncementById
-spUpdateAnnouncement
+The following stored procedures need to be added to your database. You can find the implementation code in the `Stored Procedures` folder:
 
-Запуск проекту: Щоб запустити проект, використовуйте команду:
+- `spDeleteAnnouncement`
+- `spCreateAnnouncement`
+- `spGetAllAnnouncements`
+- `spGetAnnouncementById`
+- `spUpdateAnnouncement`
 
+## 🚀 Running the Application
+
+To start the application, run:
+
+```bash
 dotnet run
+```
 
-Проект буде доступний за адресою: https://localhost:5001.
+The application will be available at: `https://localhost:5001`
+
+## 🏗️ Architecture
+
+This project follows Clean Architecture principles and includes:
+
+- ASP.NET MVC framework
+- Entity Framework for data access
+- Google Identity Authentication
+- Stored Procedures for efficient data operations
